@@ -1,0 +1,183 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & ANIMATIONS
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Floating animation used for all zone titles */
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Standard image sizing */
+img {
+    width: auto;
+    height: 200px;
+}
+
+/* ==========================================================================
+   2. IMAGE HOVER EFFECTS (Restored Features)
+   ========================================================================== */
+
+/* Applies smooth transition to specific image IDs */
+#pic1, #pic2, #pic3 {
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Restored: Zoom and brightness effect on hover */
+#pic1:hover, #pic2:hover, #pic3:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1) drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.6));
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. REUSABLE COMPONENTS (Shared Box & Highlight Styles)
+   ========================================================================== */
+
+/* Shared floating effect for titles */
+#sltitle, #tltitle, #mdtitle, #abtitle {
+    animation: floating 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Base style for all zone description containers */
+#desc, #tldesc, #mddesc, #abdesc {
+    margin: 20px auto;
+    text-align: center;
+    width: 70%;
+    max-width: 700px;
+    padding: 20px;
+    color: #f7ecff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: translate 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+/* Lift effect when the description box is hovered */
+#desc:hover, #tldesc:hover, #mddesc:hover, #abdesc:hover {
+    translate: 0 -2px;
+}
+
+/* Text shadow for readability within boxes */
+#desc p, #tldesc p, #mddesc p, #abdesc p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Default state for highlighted text spans */
+#desc #sl1, #desc #sl2,
+#tldesc #highlight1, #tldesc #highlight2,
+#mddesc #highlight1, #mddesc #highlight2,
+#abdesc #highlight1, #abdesc #highlight2 {
+    background-color: transparent;
+    color: inherit;
+    transition: all 0.4s ease;
+    padding: 0 3px;
+    border-radius: 4px;
+}
+
+/* Highlights text yellow when the parent container is hovered */
+#desc:hover #sl1, #desc:hover #sl2,
+#tldesc:hover #highlight1, #tldesc:hover #highlight2,
+#mddesc:hover #highlight1, #mddesc:hover #highlight2,
+#abdesc:hover #highlight1, #abdesc:hover #highlight2 {
+    background-color: yellow;
+    color: black;
+}
+
+/* ==========================================================================
+   4. SUNLIGHT ZONE (Epipelagic)
+   ========================================================================== */
+
+#sunlight_zone {
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(165, 223, 255), rgb(112, 112, 255));
+}
+
+h1 {
+    font-family: sans-serif;
+    color: rgb(148, 148, 255);
+    text-shadow: 0 0 10px rgba(241, 255, 163, 0.8), 0 0 20px rgba(65, 188, 255, 0.5);
+    font-size: 40px;
+}
+
+/* Horizontal scroll container for Sunlight Zone creatures */
+#sl_creature {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Ensuring images in the scroll container don't shrink */
+#sl_creature img {
+    flex-shrink: 0;
+    width: 300px;
+    height: auto;
+}
+
+#desc {
+    background: linear-gradient(to left, rgb(50, 185, 234), rgb(149, 204, 255));
+}
+
+/* ==========================================================================
+   5. TWILIGHT ZONE (Mesopelagic)
+   ========================================================================== */
+
+#tlbody {
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(131, 131, 255), rgb(13, 13, 141));
+    font-family: monospace;
+}
+
+#tltitle {
+    color: rgb(1, 35, 110);
+    text-shadow: 0 0 8px rgba(181, 221, 255, 0.8);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#tldesc {
+    background: linear-gradient(to left, rgb(7, 189, 255), rgb(11, 97, 178));
+}
+
+/* ==========================================================================
+   6. MIDNIGHT ZONE (Bathypelagic)
+   ========================================================================== */
+
+#midnight_zone {
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(92, 189, 241), rgb(9, 9, 113));
+}
+
+#mdtitle {
+    color: rgb(29, 4, 98);
+}
+
+#mddesc {
+    background: linear-gradient(to left, rgb(16, 101, 133), rgb(2, 55, 105));
+}
+
+/* ==========================================================================
+   7. ABYSSAL ZONE (Abyssopelagic)
+   ========================================================================== */
+
+#abysal_zone {
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(5, 43, 63, 0.97), rgb(9, 9, 113));
+}
+
+#abtitle {
+    color: rgb(29, 4, 98);
+}
+
+#abdesc {
+    background: linear-gradient(to left, rgb(16, 101, 133), rgb(2, 55, 105));
+}
